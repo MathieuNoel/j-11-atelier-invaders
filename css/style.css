@@ -1,0 +1,54 @@
+body {
+    background-color: #514aca;
+    font-size: medium;
+    
+}
+
+header {
+    background-color: #272bad;
+    width: 100vw;
+    height: 15vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#main {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+}
+
+#invader {
+    display: flex;
+    flex-wrap:wrap;
+    max-width :30vw;
+    max-height :30vh;
+}
+
+.pixel {
+    background-color: #0fbbfb;
+    border: 2px solid #34e7e4;
+    height:30px;
+    width:30px;
+}
+#pixelsize, #gridsize, #submit {
+    font-size: 1.5rem;
+    text-align: center;
+    height : 4.5rem;
+    margin-right: 0.2rem;
+
+}
+
+#gridsize {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+#submit {
+    color: #fff;
+    background-color: #9b68e4;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
