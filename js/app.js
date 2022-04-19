@@ -37,12 +37,13 @@ var callGrid = document.querySelector(".configuration");
     
 callGrid.addEventListener('submit', function(event){
     event.preventDefault();
-    var inputGrid = callGrid[0].value;
-    var inputPixel = callGrid[1].value;
+    reset()
+    var input1 = callGrid[0].value;
+    var input2 = callGrid[1].value;
     // document.getElementById("submit").value = inputGrid;
     
     
-    createGrid(gridSize(inputPixel, inputGrid), multiply(inputGrid));
+    createGrid(input1, input2);
 })
 
 
@@ -55,24 +56,32 @@ function multiply(inputGrid) {
 
 
 // Fonction calcul taille de la grille
-function gridSize(inputPixel, inputGrid) {
+//  function gridSize(input1, input2) {
     
 
-    return userInput = inputPixel * inputGrid ;
-}
+//      return input1 * input2 ;
+//  }
 
 
 //boucle création grille
-function createGrid (gridSize, toto) {
-    reset ();
+function createGrid (input1, input2) {
+    // reset (); plutôt au moment du submit c.f l40
+
     var invader = document.getElementById("invader");
-
-    for (var i = 0 ; i < toto ; i++) {
-
+    console.log(invader)
+    invader.style.width = `${input1 * input2}px` ;
+    
+    for (var i = 0 ; i < (input1*input1) ; i++) {
+         
         //creation pixel
-        pixel = document.createElement("div");
+        
+        pixel = document.createElement("div");        
         pixel.classList.add ("pixel");
+        // invader.style.maxWidth = gridSize + "px"; ne fonctionne pas donc on dimentionne le pixel au lieu du parent.
+        pixel.style.width = `${input2}px`;
+        pixel.style.height = `${input2}px`;
         invader.appendChild(pixel);
+        
 
 
         //Changement de la couleur
@@ -81,9 +90,9 @@ function createGrid (gridSize, toto) {
 
     }
 
-    //taille de la grille  
-    invader.style.maxWidth = gridSize + "px";
-    invader.style.maxHeight = gridSize + "px";
+    //taille de la grille c.f-> l80 
+    // invader.style.maxWidth = gridSize + "px";
+    // invader.style.maxHeight = gridSize + "px";
     
 }
 
@@ -113,7 +122,9 @@ function changeColor (color) {
 
 
 function reset() {
-    document.getElementsByClassName("pixel").innerHTML = '';
+    document.getElementById("invader").innerHTML = '';
+    // on doit supprimer le text content du container #invader et pas celui des cellule .pixel 
 }
 
-//on a constaté que c'est la taille du container .invader qui est modifié au lieu de la taille des célules.
+//on a constaté que c'est la taille du container #invader qui est modifié au lieu de la taille des célules.
+
